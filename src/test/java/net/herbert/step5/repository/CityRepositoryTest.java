@@ -10,10 +10,10 @@ import reactor.test.StepVerifier;
 public class CityRepositoryTest {
 
     @Test @DisplayName("Test that the city database is not empty")
-    public void testThatTheCountryDatabaseIsNotEmpty() {
+    public void testThatTheCityDatabaseIsNotEmpty() {
         cityRepository.countAllInCountry("Romania")
                 .as(StepVerifier::create)
-                .expectNextMatches(aLong -> aLong > 0)
+                .expectNextMatches(count -> count > 0)
                 .verifyComplete();
     }
 
