@@ -1,11 +1,14 @@
 package net.herbert.step5.model;
 
 import org.springframework.data.annotation.Id;
+import org.springframework.data.relational.core.mapping.Column;
 import org.springframework.data.relational.core.mapping.Table;
 
 @Table("cities")
 public class City {
-    @Id private String name;
+    @Id
+    private String name;
+    @Column("country")
     private String country;
     private String subcountry;
     private Integer geonameid;

@@ -11,7 +11,7 @@ public class CityRepositoryTest {
 
     @Test @DisplayName("Test that the city database is not empty")
     public void testThatTheCountryDatabaseIsNotEmpty() {
-        cityRepository.count()
+        cityRepository.countAllInCountry("Romania")
                 .as(StepVerifier::create)
                 .expectNextMatches(aLong -> aLong > 0)
                 .verifyComplete();
