@@ -1,0 +1,6 @@
+spring:
+  r2dbc:
+    url: "r2dbc:h2:file:////home/costea/Work/Arezzosky/TechHerbert2019/Data/cities"
+    username: test
+    password: ""
+    initialization-mode: always
