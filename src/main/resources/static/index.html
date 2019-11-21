@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script type="application/javascript">
+        function listener() {
+            if (this.readyState === 4 && this.status === 200) {
+                var cities = JSON.parse(this.responseText);
+                var cityList = document.getElementById("cities");
+                cityList.innerHTML = "";
+                cities.forEach(function(city) {
+                    var cityItem = document.createElement("li");
+                    cityItem.appendChild(document.createTextNode(city.name));
+                    cityList.appendChild(cityItem);
+                });
+            }
+        }
+
+        function request() {
+            var req = new XMLHttpRequest();
+            req.onreadystatechange = listener;
+            req.open("GET", "http://localhost:8080/cities");
+            req.send();
+        }
+
+        window.setInterval(request, 1000);
+    </script>
+
+    <ul id="cities">
+    </ul>
+</body>
+</html>
